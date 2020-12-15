@@ -3,7 +3,7 @@
 //import com.terraformersmc.terrestria.init.TerrestriaBiomes;
 //
 //import net.fabricmc.fabric.api.event.registry.RegistryEntryAddedCallback;
-//import net.minecraft.util.registry.Registry;
+//import net.minecraft.util.registry.BuiltinRegistries;
 //import tk.valoeghese.climatic.ClimaticWorldType;
 //import tk.valoeghese.climatic.api.Climate;
 //import tk.valoeghese.climatic.api.ClimateBiomes;
@@ -21,7 +21,7 @@
 //			initTerrestria();
 //
 //		} else {
-//			RegistryEntryAddedCallback.event(Registry.BIOME).register((rawId, id, biome) -> {
+//			RegistryEntryAddedCallback.event(BuiltinRegistries.BIOME).register((rawId, id, biome) -> {
 //				if (id.toString().equals("terrestria:volcanic_island_beach")) {
 //					initTerrestria();
 //				}

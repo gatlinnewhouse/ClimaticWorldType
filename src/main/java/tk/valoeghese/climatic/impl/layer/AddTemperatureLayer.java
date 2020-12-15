@@ -1,8 +1,8 @@
 package tk.valoeghese.climatic.impl.layer;
 
-import net.minecraft.world.biome.layer.LayerSampleContext;
-import net.minecraft.world.biome.layer.LayerSampler;
-import net.minecraft.world.biome.layer.ParentedLayer;
+import net.minecraft.world.biome.layer.type.ParentedLayer;
+import net.minecraft.world.biome.layer.util.LayerSampleContext;
+import net.minecraft.world.biome.layer.util.LayerSampler;
 import tk.valoeghese.climatic.ClimaticWorldType;
 import tk.valoeghese.climatic.impl.ClimateBiomesImpl;
 import tk.valoeghese.climatic.util.OpenSimplexNoise;

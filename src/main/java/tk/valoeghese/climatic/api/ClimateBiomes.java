@@ -1,7 +1,7 @@
 package tk.valoeghese.climatic.api;
 
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.layer.LayerRandomnessSource;
+import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
 import tk.valoeghese.climatic.ClimaticWorldType;
 import tk.valoeghese.climatic.impl.ClimateBiomesImpl;
 

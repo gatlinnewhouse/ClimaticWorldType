@@ -14,8 +14,8 @@ import com.google.gson.Gson;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.util.Identifier;
-import net.minecraft.util.registry.Registry;
-import net.minecraft.world.biome.Biomes;
+import net.minecraft.util.registry.BuiltinRegistries;
+import net.minecraft.world.biome.BiomeKeys;
 import net.minecraft.world.gen.chunk.ChunkGeneratorType;
 import net.minecraft.world.gen.chunk.OverworldChunkGeneratorConfig;
 import net.minecraft.world.level.LevelGeneratorType;
@@ -100,83 +100,83 @@ public class ClimaticWorldType implements ModInitializer {
 	// 10 average weight; 5 average "uncommon" weight
 	private void addDefaultBiomes(boolean traverseLoaded, boolean terrestriaLoaded) {
 		// Boreal
-		ClimateBiomes.addBiome(Climate.BOREAL, Biomes.TAIGA, 7); // 7 + 2 + 1 = 10
-		ClimateBiomes.addBiome(Climate.BOREAL, Biomes.GIANT_TREE_TAIGA, 2);
-		ClimateBiomes.addBiome(Climate.BOREAL, Biomes.GIANT_SPRUCE_TAIGA, 1);
+		ClimateBiomes.addBiome(Climate.BOREAL, BiomeKeys.TAIGA, 7); // 7 + 2 + 1 = 10
+		ClimateBiomes.addBiome(Climate.BOREAL, BiomeKeys.GIANT_TREE_TAIGA, 2);
+		ClimateBiomes.addBiome(Climate.BOREAL, BiomeKeys.GIANT_SPRUCE_TAIGA, 1);
 
 		// Cool Temperate
-		ClimateBiomes.addBiome(Climate.COOL_TEMPERATE, Biomes.BIRCH_FOREST, 7); // 7 + 3 = 10
-		ClimateBiomes.addBiome(Climate.COOL_TEMPERATE, Biomes.TALL_BIRCH_FOREST, 3);
+		ClimateBiomes.addBiome(Climate.COOL_TEMPERATE, BiomeKeys.BIRCH_FOREST, 7); // 7 + 3 = 10
+		ClimateBiomes.addBiome(Climate.COOL_TEMPERATE, BiomeKeys.TALL_BIRCH_FOREST, 3);
 
 		// Humid Subtropical
-		ClimateBiomes.addBiome(Climate.HUMID_SUBTROPICAL, Biomes.DARK_FOREST, 10);
-		ClimateBiomes.addBiome(Climate.HUMID_SUBTROPICAL, Biomes.SWAMP, 10);
+		ClimateBiomes.addBiome(Climate.HUMID_SUBTROPICAL, BiomeKeys.DARK_FOREST, 10);
+		ClimateBiomes.addBiome(Climate.HUMID_SUBTROPICAL, BiomeKeys.SWAMP, 10);
 
 		// Ice Cap
-		ClimateBiomes.addBiome(Climate.ICE_CAP, Biomes.SNOWY_TUNDRA, 7); // 7 + 3 = 10
-		ClimateBiomes.addBiome(Climate.SNOWY, Biomes.ICE_SPIKES, 3);
+		ClimateBiomes.addBiome(Climate.ICE_CAP, BiomeKeys.SNOWY_TUNDRA, 7); // 7 + 3 = 10
+		ClimateBiomes.addBiome(Climate.SNOWY, BiomeKeys.ICE_SPIKES, 3);
 
 		// Maritime
-		ClimateBiomes.addBiome(Climate.MARITIME, Biomes.PLAINS, 10);
-		ClimateBiomes.addBiome(Climate.MARITIME, Biomes.SWAMP, 10);
-		ClimateBiomes.addBiome(Climate.MARITIME, Biomes.FOREST, 7); // 7 + 3 = 10
-		ClimateBiomes.addBiome(Climate.MARITIME, Biomes.FLOWER_FOREST, 3);
+		ClimateBiomes.addBiome(Climate.MARITIME, BiomeKeys.PLAINS, 10);
+		ClimateBiomes.addBiome(Climate.MARITIME, BiomeKeys.SWAMP, 10);
+		ClimateBiomes.addBiome(Climate.MARITIME, BiomeKeys.FOREST, 7); // 7 + 3 = 10
+		ClimateBiomes.addBiome(Climate.MARITIME, BiomeKeys.FLOWER_FOREST, 3);
 
 		// Mediterranean
-		ClimateBiomes.addBiome(Climate.MEDITERRANEAN, Biomes.FOREST, 10);
-		ClimateBiomes.addBiome(Climate.MEDITERRANEAN, Biomes.MOUNTAINS, 6); // 6 + 3 + 1 = 10
-		ClimateBiomes.addBiome(Climate.MEDITERRANEAN, Biomes.GRAVELLY_MOUNTAINS, 3);
-		ClimateBiomes.addBiome(Climate.MEDITERRANEAN, Biomes.MODIFIED_GRAVELLY_MOUNTAINS, 1);
+		ClimateBiomes.addBiome(Climate.MEDITERRANEAN, BiomeKeys.FOREST, 10);
+		ClimateBiomes.addBiome(Climate.MEDITERRANEAN, BiomeKeys.MOUNTAINS, 6); // 6 + 3 + 1 = 10
+		ClimateBiomes.addBiome(Climate.MEDITERRANEAN, BiomeKeys.GRAVELLY_MOUNTAINS, 3);
+		ClimateBiomes.addBiome(Climate.MEDITERRANEAN, BiomeKeys.MODIFIED_GRAVELLY_MOUNTAINS, 1);
 
 		// Snowy
-		ClimateBiomes.addBiome(Climate.SNOWY, Biomes.SNOWY_TUNDRA, 10);
-		ClimateBiomes.addBiome(Climate.SNOWY, Biomes.SNOWY_TAIGA, 7); // 7 + 3 = 10
-		ClimateBiomes.addBiome(Climate.SNOWY, Biomes.SNOWY_TAIGA_MOUNTAINS, 3);
+		ClimateBiomes.addBiome(Climate.SNOWY, BiomeKeys.SNOWY_TUNDRA, 10);
+		ClimateBiomes.addBiome(Climate.SNOWY, BiomeKeys.SNOWY_TAIGA, 7); // 7 + 3 = 10
+		ClimateBiomes.addBiome(Climate.SNOWY, BiomeKeys.SNOWY_TAIGA_MOUNTAINS, 3);
 
 		// Temperate Desert
-		ClimateBiomes.addBiome(Climate.TEMPERATE_DESERT, Biomes.DESERT_LAKES, 10);
-		ClimateBiomes.addBiome(Climate.TEMPERATE_DESERT, Biomes.BADLANDS_PLATEAU, 3);
-		ClimateBiomes.addBiome(Climate.TEMPERATE_DESERT, Biomes.BADLANDS, 2); // 3 + 2 = 5
+		ClimateBiomes.addBiome(Climate.TEMPERATE_DESERT, BiomeKeys.DESERT_LAKES, 10);
+		ClimateBiomes.addBiome(Climate.TEMPERATE_DESERT, BiomeKeys.BADLANDS_PLATEAU, 3);
+		ClimateBiomes.addBiome(Climate.TEMPERATE_DESERT, BiomeKeys.BADLANDS, 2); // 3 + 2 = 5
 
 		// Tropical Desert
-		ClimateBiomes.addBiome(Climate.TROPICAL_DESERT, Biomes.DESERT, 7); // 7 + 3 = 10
-		ClimateBiomes.addBiome(Climate.TROPICAL_DESERT, Biomes.DESERT_LAKES, 3);
+		ClimateBiomes.addBiome(Climate.TROPICAL_DESERT, BiomeKeys.DESERT, 7); // 7 + 3 = 10
+		ClimateBiomes.addBiome(Climate.TROPICAL_DESERT, BiomeKeys.DESERT_LAKES, 3);
 
 		// Tropical Rainforest
-		ClimateBiomes.addBiome(Climate.TROPICAL_RAINFOREST, Biomes.JUNGLE, 7); // 7 + 3 = 10
-		ClimateBiomes.addBiome(Climate.TROPICAL_RAINFOREST, Biomes.MODIFIED_JUNGLE, 3);
-		ClimateBiomes.addBiome(Climate.TROPICAL_RAINFOREST, Biomes.BAMBOO_JUNGLE, 10);
+		ClimateBiomes.addBiome(Climate.TROPICAL_RAINFOREST, BiomeKeys.JUNGLE, 7); // 7 + 3 = 10
+		ClimateBiomes.addBiome(Climate.TROPICAL_RAINFOREST, BiomeKeys.MODIFIED_JUNGLE, 3);
+		ClimateBiomes.addBiome(Climate.TROPICAL_RAINFOREST, BiomeKeys.BAMBOO_JUNGLE, 10);
 
 		// Tropical Savannah
-		ClimateBiomes.addBiome(Climate.TROPICAL_SAVANNAH, Biomes.SAVANNA, 7); // 7 + 3 = 10
-		ClimateBiomes.addBiome(Climate.TROPICAL_SAVANNAH, Biomes.SHATTERED_SAVANNA, 3);
+		ClimateBiomes.addBiome(Climate.TROPICAL_SAVANNAH, BiomeKeys.SAVANNA, 7); // 7 + 3 = 10
+		ClimateBiomes.addBiome(Climate.TROPICAL_SAVANNAH, BiomeKeys.SHATTERED_SAVANNA, 3);
 
 		// Tropical Steppe
-		ClimateBiomes.addBiome(Climate.TROPICAL_STEPPE, Biomes.PLAINS, 10); // when terrestria releases steppe this will become a placeholder
+		ClimateBiomes.addBiome(Climate.TROPICAL_STEPPE, BiomeKeys.PLAINS, 10); // when terrestria releases steppe this will become a placeholder
 
 		// Warm Temperate
-		ClimateBiomes.addBiome(Climate.WARM_TEMPERATE, Biomes.PLAINS, 10);
-		ClimateBiomes.addBiome(Climate.WARM_TEMPERATE, Biomes.FOREST, 10);
-		ClimateBiomes.addBiome(Climate.WARM_TEMPERATE, Biomes.DARK_FOREST, 5);
+		ClimateBiomes.addBiome(Climate.WARM_TEMPERATE, BiomeKeys.PLAINS, 10);
+		ClimateBiomes.addBiome(Climate.WARM_TEMPERATE, BiomeKeys.FOREST, 10);
+		ClimateBiomes.addBiome(Climate.WARM_TEMPERATE, BiomeKeys.DARK_FOREST, 5);
 
 		// Placeholders for other mods "fulfiling" the requirement
 		if (!traverseLoaded) {
-			ClimateBiomes.addBiome(Climate.COOL_TEMPERATE, Biomes.PLAINS, 5); // else meadow
+			ClimateBiomes.addBiome(Climate.COOL_TEMPERATE, BiomeKeys.PLAINS, 5); // else meadow
 		}
 
 		// Neighbours
-		ClimateBiomes.addNeighboursForBiome(Biomes.TAIGA, Biomes.TAIGA_MOUNTAINS, 5);
-		ClimateBiomes.addNeighboursForBiome(Biomes.SNOWY_TAIGA, Biomes.SNOWY_TAIGA_MOUNTAINS, 5);
-		ClimateBiomes.addNeighboursForBiome(Biomes.ICE_SPIKES, Biomes.SNOWY_TUNDRA, 5);
+		ClimateBiomes.addNeighboursForBiome(BiomeKeys.TAIGA, BiomeKeys.TAIGA_MOUNTAINS, 5);
+		ClimateBiomes.addNeighboursForBiome(BiomeKeys.SNOWY_TAIGA, BiomeKeys.SNOWY_TAIGA_MOUNTAINS, 5);
+		ClimateBiomes.addNeighboursForBiome(BiomeKeys.ICE_SPIKES, BiomeKeys.SNOWY_TUNDRA, 5);
 
-		ClimateBiomes.addNeighboursForBiome(Biomes.BADLANDS, Biomes.ERODED_BADLANDS, 5);
-		ClimateBiomes.addNeighboursForBiome(Biomes.BADLANDS_PLATEAU, Biomes.MODIFIED_BADLANDS_PLATEAU, 3); // 3 + 2 = 5
-		ClimateBiomes.addNeighboursForBiome(Biomes.BADLANDS_PLATEAU, Biomes.MODIFIED_WOODED_BADLANDS_PLATEAU, 2);
+		ClimateBiomes.addNeighboursForBiome(BiomeKeys.BADLANDS, BiomeKeys.ERODED_BADLANDS, 5);
+		ClimateBiomes.addNeighboursForBiome(BiomeKeys.BADLANDS_PLATEAU, BiomeKeys.MODIFIED_BADLANDS_PLATEAU, 3); // 3 + 2 = 5
+		ClimateBiomes.addNeighboursForBiome(BiomeKeys.BADLANDS_PLATEAU, BiomeKeys.MODIFIED_WOODED_BADLANDS_PLATEAU, 2);
 
-		ClimateBiomes.addNeighboursForBiome(Biomes.BAMBOO_JUNGLE, Biomes.JUNGLE, 5);
+		ClimateBiomes.addNeighboursForBiome(BiomeKeys.BAMBOO_JUNGLE, BiomeKeys.JUNGLE, 5);
 
-		ClimateBiomes.addNeighboursForBiome(Biomes.DESERT, Biomes.DESERT_LAKES, 3);
-		ClimateBiomes.addNeighboursForBiome(Biomes.DESERT, Biomes.BADLANDS, 2);
+		ClimateBiomes.addNeighboursForBiome(BiomeKeys.DESERT, BiomeKeys.DESERT_LAKES, 3);
+		ClimateBiomes.addNeighboursForBiome(BiomeKeys.DESERT, BiomeKeys.BADLANDS, 2);
 	}
 
 	public static final Identifier from(String id)

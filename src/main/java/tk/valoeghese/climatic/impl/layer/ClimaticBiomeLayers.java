@@ -10,19 +10,19 @@ import net.minecraft.world.biome.layer.AddIslandLayer;
 import net.minecraft.world.biome.layer.AddMushroomIslandLayer;
 import net.minecraft.world.biome.layer.AddRiversLayer;
 import net.minecraft.world.biome.layer.AddSunflowerPlainsLayer;
-import net.minecraft.world.biome.layer.BiomeLayerSampler;
-import net.minecraft.world.biome.layer.CachingLayerContext;
 import net.minecraft.world.biome.layer.ContinentLayer;
 import net.minecraft.world.biome.layer.EaseBiomeEdgeLayer;
 import net.minecraft.world.biome.layer.IncreaseEdgeCurvatureLayer;
-import net.minecraft.world.biome.layer.LayerFactory;
-import net.minecraft.world.biome.layer.LayerSampleContext;
-import net.minecraft.world.biome.layer.LayerSampler;
 import net.minecraft.world.biome.layer.NoiseToRiverLayer;
-import net.minecraft.world.biome.layer.ParentedLayer;
 import net.minecraft.world.biome.layer.ScaleLayer;
 import net.minecraft.world.biome.layer.SimpleLandNoiseLayer;
-import net.minecraft.world.biome.layer.SmoothenShorelineLayer;
+import net.minecraft.world.biome.layer.SmoothLayer;
+import net.minecraft.world.biome.layer.type.ParentedLayer;
+import net.minecraft.world.biome.layer.util.CachingLayerContext;
+import net.minecraft.world.biome.layer.util.LayerFactory;
+import net.minecraft.world.biome.layer.util.LayerSampleContext;
+import net.minecraft.world.biome.layer.util.LayerSampler;
+import net.minecraft.world.biome.source.BiomeLayerSampler;
 import net.minecraft.world.level.LevelGeneratorType;
 import tk.valoeghese.climatic.ClimaticWorldType;
 
@@ -132,8 +132,8 @@ public class ClimaticBiomeLayers {
 			}
 		}
 		
-		biomeFactory = SmoothenShorelineLayer.INSTANCE.create(random.apply(1000L), biomeFactory);
-		riverFactory = SmoothenShorelineLayer.INSTANCE.create(random.apply(1000L), riverFactory);
+		biomeFactory = SmoothLayer.INSTANCE.create(random.apply(1000L), biomeFactory);
+		riverFactory = SmoothLayer.INSTANCE.create(random.apply(1000L), riverFactory);
 		
 		LayerFactory<T> mixBiomeFactory = AddRiversLayer.INSTANCE.create(random.apply(100L), biomeFactory, riverFactory);
 

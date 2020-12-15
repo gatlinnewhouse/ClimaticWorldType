@@ -10,10 +10,10 @@ import java.util.Set;
 import org.apache.commons.lang3.ArrayUtils;
 
 import net.fabricmc.fabric.impl.biome.InternalBiomeData;
-import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.layer.LayerRandomnessSource;
+import net.minecraft.world.biome.BiomeKeys;
+import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
 import tk.valoeghese.climatic.api.Climate;
 import tk.valoeghese.climatic.api.OceanClimate;
 
@@ -115,7 +115,7 @@ public final class ClimateBiomesImpl {
 		List<IslandEntry> entries = ISLAND_ENTRIES.getOrDefault(climate, new ArrayList<>());
 		for (IslandEntry entry : entries) {
 			if (rand.nextInt(entry.chance) == 0) {
-				return Registry.BIOME.getRawId(entry.island);
+				return BuiltinRegistries.BIOME.getRawId(entry.island);
 			}
 		}
 		
@@ -130,7 +130,7 @@ public final class ClimateBiomesImpl {
 		List<EdgeCorrectionEntry> entries = EDGE_CORRECTIONS.get(centre);
 		for (EdgeCorrectionEntry entry : entries) {
 			if (entry.shouldGenerate(border1, border2, border3, border4)) {
-				return Registry.BIOME.getRawId(entry.correction);
+				return BuiltinRegistries.BIOME.getRawId(entry.correction);
 			}
 		}
 		
@@ -184,21 +184,21 @@ public final class ClimateBiomesImpl {
 	}
 	
 	static {
-		trackBiome(Biomes.COLD_OCEAN);
-		trackBiome(Biomes.DEEP_COLD_OCEAN);
-		trackBiome(Biomes.DEEP_FROZEN_OCEAN);
-		trackBiome(Biomes.DEEP_LUKEWARM_OCEAN);
-		trackBiome(Biomes.DEEP_OCEAN);
-		trackBiome(Biomes.DEEP_WARM_OCEAN);
-		trackBiome(Biomes.FROZEN_OCEAN);
-		trackBiome(Biomes.LUKEWARM_OCEAN);
-		trackBiome(Biomes.OCEAN);
-		trackBiome(Biomes.WARM_OCEAN);
+		trackBiome(BiomeKeys.COLD_OCEAN);
+		trackBiome(BiomeKeys.DEEP_COLD_OCEAN);
+		trackBiome(BiomeKeys.DEEP_FROZEN_OCEAN);
+		trackBiome(BiomeKeys.DEEP_LUKEWARM_OCEAN);
+		trackBiome(BiomeKeys.DEEP_OCEAN);
+		trackBiome(BiomeKeys.DEEP_WARM_OCEAN);
+		trackBiome(BiomeKeys.FROZEN_OCEAN);
+		trackBiome(BiomeKeys.LUKEWARM_OCEAN);
+		trackBiome(BiomeKeys.OCEAN);
+		trackBiome(BiomeKeys.WARM_OCEAN);
 		
-		trackBiome(Biomes.BEACH);
-		trackBiome(Biomes.SNOWY_BEACH);
-		trackBiome(Biomes.STONE_SHORE);
-		trackBiome(Biomes.MUSHROOM_FIELD_SHORE);
+		trackBiome(BiomeKeys.BEACH);
+		trackBiome(BiomeKeys.SNOWY_BEACH);
+		trackBiome(BiomeKeys.STONE_SHORE);
+		trackBiome(BiomeKeys.MUSHROOM_FIELD_SHORE);
 	}
 	
 	public static void trackBiomeIfAbsent(Biome biome) {

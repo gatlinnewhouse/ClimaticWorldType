@@ -3,10 +3,10 @@ package tk.valoeghese.climatic.impl.layer;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.layer.CrossSamplingLayer;
-import net.minecraft.world.biome.layer.LayerRandomnessSource;
+import net.minecraft.world.biome.layer.type.CrossSamplingLayer;
+import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
 import tk.valoeghese.climatic.impl.ClimateBiomesImpl;
 
 public enum AddNeighboursLayer implements CrossSamplingLayer {
@@ -17,13 +17,13 @@ public enum AddNeighboursLayer implements CrossSamplingLayer {
 		if (rand.nextInt(4) == 0) {
 			List<Biome> list = new ArrayList<>();
 			
-			ClimateBiomesImpl.addNeighboursTo(list, Registry.BIOME.get(border1));
-			ClimateBiomesImpl.addNeighboursTo(list, Registry.BIOME.get(border2));
-			ClimateBiomesImpl.addNeighboursTo(list, Registry.BIOME.get(border3));
-			ClimateBiomesImpl.addNeighboursTo(list, Registry.BIOME.get(border4));
+			ClimateBiomesImpl.addNeighboursTo(list, BuiltinRegistries.BIOME.get(border1));
+			ClimateBiomesImpl.addNeighboursTo(list, BuiltinRegistries.BIOME.get(border2));
+			ClimateBiomesImpl.addNeighboursTo(list, BuiltinRegistries.BIOME.get(border3));
+			ClimateBiomesImpl.addNeighboursTo(list, BuiltinRegistries.BIOME.get(border4));
 			
 			if (!list.isEmpty()) {
-				return Registry.BIOME.getRawId(list.get(rand.nextInt(list.size())));
+				return BuiltinRegistries.BIOME.getRawId(list.get(rand.nextInt(list.size())));
 			} else {
 				return centre;
 			}

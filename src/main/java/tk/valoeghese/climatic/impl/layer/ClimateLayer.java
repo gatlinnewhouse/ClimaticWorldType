@@ -12,12 +12,14 @@ import static tk.valoeghese.climatic.api.Climate.TROPICAL_RAINFOREST;
 import static tk.valoeghese.climatic.api.Climate.TROPICAL_SAVANNAH;
 import static tk.valoeghese.climatic.api.Climate.TROPICAL_STEPPE;
 import static tk.valoeghese.climatic.api.Climate.WARM_TEMPERATE;
+
+import net.minecraft.world.biome.layer.type.MergingLayer;
+import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
+import net.minecraft.world.biome.layer.util.LayerSampler;
+import net.minecraft.world.biome.layer.util.NorthWestCoordinateTransformer;
+
 import static tk.valoeghese.climatic.api.Climate.MARITIME;
 
-import net.minecraft.world.biome.layer.LayerRandomnessSource;
-import net.minecraft.world.biome.layer.LayerSampler;
-import net.minecraft.world.biome.layer.MergingLayer;
-import net.minecraft.world.biome.layer.NorthWestCoordinateTransformer;
 import tk.valoeghese.climatic.api.Climate;
 
 public enum ClimateLayer implements MergingLayer, NorthWestCoordinateTransformer, OceanIds {

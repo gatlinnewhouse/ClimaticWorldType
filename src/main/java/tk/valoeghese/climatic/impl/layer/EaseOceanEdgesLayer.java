@@ -1,15 +1,16 @@
 package tk.valoeghese.climatic.impl.layer;
 
-import net.minecraft.util.registry.Registry;
+import net.minecraft.util.registry.BuiltinRegistries;
 import net.minecraft.world.biome.Biome;
-import net.minecraft.world.biome.Biomes;
-import net.minecraft.world.biome.layer.CrossSamplingLayer;
-import net.minecraft.world.biome.layer.LayerRandomnessSource;
+import net.minecraft.world.biome.BiomeKeys;
+import net.minecraft.world.biome.layer.type.CrossSamplingLayer;
+import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
+import net.fabricmc.fabric.impl.biome.InternalBiomeUtils;
 
 public enum EaseOceanEdgesLayer implements CrossSamplingLayer, OceanIds {
 	INSTANCE;
 
-	private static final int SAVANNA_ID = Registry.BIOME.getRawId(Biomes.SAVANNA);
+	private static final int SAVANNA_ID = InternalBiomeUtils.getRawId(BiomeKeys.SAVANNA);
 
 	@Override
 	public int sample(LayerRandomnessSource rand, int border1, int border2, int border3, int border4, int centre) {
@@ -22,7 +23,7 @@ public enum EaseOceanEdgesLayer implements CrossSamplingLayer, OceanIds {
 				}
 			}
 			} else if (isOcean(border1) || isOcean(border2) || isOcean(border3) || isOcean(border4)) {
-				if (Registry.BIOME.get(centre).getCategory() == Biome.Category.DESERT) {
+				if (BuiltinRegistries.BIOME.get(centre).getCategory() == Biome.Category.DESERT) {
 					return SAVANNA_ID;
 				}
 			}

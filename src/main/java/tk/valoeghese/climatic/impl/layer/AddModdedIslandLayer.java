@@ -1,7 +1,7 @@
 package tk.valoeghese.climatic.impl.layer;
 
-import net.minecraft.world.biome.layer.CrossSamplingLayer;
-import net.minecraft.world.biome.layer.LayerRandomnessSource;
+import net.minecraft.world.biome.layer.type.CrossSamplingLayer;
+import net.minecraft.world.biome.layer.util.LayerRandomnessSource;
 import tk.valoeghese.climatic.api.OceanClimate;
 import tk.valoeghese.climatic.impl.ClimateBiomesImpl;
 
